@@ -1,0 +1,32 @@
+Authentication & Authorization:
+All protected endpoints require a valid JWT token in the Authorization header, formatted as:
+Authorization: Bearer <JWT_TOKEN>
+
+HTTP Methods:
+
+POST: Used for creating resources (login, user creation, book creation, borrowing/returning transactions).
+
+GET: Used for retrieving resources (listing users, listing books).
+
+PUT: Used for updating existing resources (updating user or book details).
+
+DELETE: Used for deleting resources (deleting a book).
+
+Status Codes:
+
+200 OK: Successful operation.
+
+201 Created: Resource successfully created.
+
+400 Bad Request: Invalid or missing input data.
+
+401 Unauthorized: Authentication failure (e.g., invalid credentials).
+
+403 Forbidden: Authenticated but lacks the required permissions.
+
+404 Not Found: The requested resource does not exist.
+
+422 Unprocessable Entity: The server understands the content type of the request entity, but the syntax is incorrect or semantically invalid.
+
+Error Handling:
+The API returns error messages in JSON format detailing the cause of the error.

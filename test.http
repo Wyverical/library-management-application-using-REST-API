@@ -1,0 +1,77 @@
+### Create Admin User
+POST http://127.0.0.1:5000/users
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123",
+  "role": "admin"
+}
+
+### Login Admin User
+POST http://127.0.0.1:5000/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+# Copy the access_token from the response and replace <JWT_TOKEN_ADMIN> below.
+
+### Create a Book (Admin Only)
+POST http://127.0.0.1:5000/books
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzQ4NDY0MSwianRpIjoiNDNmNDI1YTgtN2QxOS00ODRmLWE5MGQtNjNlMGViNzQ4NjBkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFkbWluIiwibmJmIjoxNzQzNDg0NjQxLCJjc3JmIjoiYTA4NzljZWItN2I0YS00YThhLTkzYmYtYjBjN2IzNmE4N2U3IiwiZXhwIjoxNzQzNTcxMDQxfQ.0SXX2cN-s7hnfnKfqsO08d7Nmc1iLAYiSuNiBfjEqNc
+
+{
+  "title": "Flask for Beginners",
+  "author": "John Doe",
+  "isbn": "1234567890",
+  "published_year": 2021,
+  "category": "Programming",
+  "quantity": 5
+}
+
+### List Books
+GET http://127.0.0.1:5000/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzQ4NDY0MSwianRpIjoiNDNmNDI1YTgtN2QxOS00ODRmLWE5MGQtNjNlMGViNzQ4NjBkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFkbWluIiwibmJmIjoxNzQzNDg0NjQxLCJjc3JmIjoiYTA4NzljZWItN2I0YS00YThhLTkzYmYtYjBjN2IzNmE4N2U3IiwiZXhwIjoxNzQzNTcxMDQxfQ.0SXX2cN-s7hnfnKfqsO08d7Nmc1iLAYiSuNiBfjEqNc
+
+### Create Normal User
+POST http://127.0.0.1:5000/users
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "userpass",
+  "role": "user"
+}
+
+### Login Normal User
+POST http://127.0.0.1:5000/auth/login
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "userpass"
+}
+
+# Copy the access_token from the response and replace <JWT_TOKEN_USER> below.
+
+### Borrow Book (Normal User)
+POST http://127.0.0.1:5000/transactions/borrow
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzQ4NDkzMCwianRpIjoiNzY4NzllYWQtMmU4ZS00NDIzLWI4OWQtMjU0NTY3N2UwYThhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXIxIiwibmJmIjoxNzQzNDg0OTMwLCJjc3JmIjoiMjZlMzE3MTQtZDFkZS00YWVkLThlMWItN2Q3NTlhYjYyZDk1IiwiZXhwIjoxNzQzNTcxMzMwfQ.Fzymoqk1y1KbnfdoL-nU2CMm2zypCent0TTIPjXcXeE
+
+{
+  "book_id": 1
+}
+
+### Return Book (Normal User)
+POST http://127.0.0.1:5000/transactions/return
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzQ4NDkzMCwianRpIjoiNzY4NzllYWQtMmU4ZS00NDIzLWI4OWQtMjU0NTY3N2UwYThhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXIxIiwibmJmIjoxNzQzNDg0OTMwLCJjc3JmIjoiMjZlMzE3MTQtZDFkZS00YWVkLThlMWItN2Q3NTlhYjYyZDk1IiwiZXhwIjoxNzQzNTcxMzMwfQ.Fzymoqk1y1KbnfdoL-nU2CMm2zypCent0TTIPjXcXeE
+
+{
+  "book_id": 1
+}

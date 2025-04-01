@@ -1,0 +1,16 @@
+library_management/
+├── run.py                # Entry point of the application.
+├── requirements.txt      # List of dependencies with pinned versions.
+├── README.md             # Documentation file (this blog post).
+├── library_api/          # Main application package.
+│   ├── __init__.py       # Application factory and blueprint registration.
+│   ├── config.py         # Configuration settings (database, JWT, secret keys).
+│   ├── models.py         # Database models: User, Book, Transaction.
+│   ├── utils.py          # Utility functions (e.g., checking user roles).
+│   └── routes/           # Contains all route modules.
+│       ├── __init__.py   # (Empty file marking the package.)
+│       ├── auth.py       # Authentication endpoints (e.g., login).
+│       ├── users.py      # User management endpoints.
+│       ├── books.py      # Book management endpoints.
+│       └── transactions.py  # Transaction endpoints (borrowing and returning books).
+└── test.http             # REST Client file for testing endpoints (for VS Code).

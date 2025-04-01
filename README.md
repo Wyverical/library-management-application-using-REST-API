@@ -1,4 +1,4 @@
-# Building a Library Management System API: A Professional Guide
+# Building a Library Management System using REST API
 
 Building a robust Library Management System API using Flask, SQLAlchemy, and JWT authentication. This guide explains each step in detail—from cloning the repository and installing dependencies to running the application and testing the endpoints. Whether you’re a beginner or an experienced developer, this step-by-step process will help you understand and implement a secure, scalable RESTful API for managing library operations.
 
